@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Pages</h1>
+<h1>All Pages</h1>
 
 <table>
   <thead>
@@ -15,11 +13,9 @@
   <tbody>
     <% @pages.each do |page| %>
       <tr>
-        <td><%= page.title %></td>
-        <td><%= page.body %></td>
-        <td><%= page.slug %></td>
-        <td><%= link_to 'Show', admin_page_path(page) %></td>
-        <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
+        <td><%= link_to page.title, edit_admin_page_path(page)  %></td>
+        <td><%= truncate page.body, length: 100 %></td>
+        <td><%= url_for_page(page) %></td>
         <td><%= link_to 'Destroy', admin_page_path(page), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -27,5 +23,4 @@
 </table>
 
 <br>
-
-<%= link_to 'New Page', new_admin_page_path %>
+<p> <%= link_to 'New Page', new_admin_page_path , class: "btn btn-primary"%> </p>

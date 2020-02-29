@@ -1,0 +1,7 @@
+<h1><%= @page.title %></h1>
+<p><em><%= time_ago_in_words @page.created_at %></em></p>
+<p>
+  <strong>
+  <%= simple_format @page.body %>
+  </strong>
+</p>
