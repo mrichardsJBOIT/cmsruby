@@ -71,7 +71,7 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def page_params
-      params.require(:page).permit(:title, :body, :slug)
+      params.require(:page).permit(:title, :body, :slug, :category_id)
     end
   end
 end
