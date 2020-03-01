@@ -14,9 +14,17 @@
     <%= form.label :title %>
     <%= form.text_field :title, class: "form-control" %>
   </p>
+  <h3> Custom fields </h3>
+    <%= form.fields_for :fields do |c| %>
+    <p>
+    <%= c.label :value, c.object.field_definition.key %>
+    <%= c.text_field :value, class: "form-control" %>
+    <%= c.hidden_field :field_definition %>
+    <% end %>
+
   <p>
     <%= form.label :body %>
-    <%= form.text_area :body, class: "form-control", rows: 15 %>
+    <%= form.cktext_area :body %>
   </p>
   <p>
     <%= form.label :slug %>
@@ -27,6 +35,7 @@
     <%= form.select :category_id, Category.all.map { |category| [ category.name, category.id]}, class: "form-control" %>
   </p>
   <p>
+    <%= form.hidden_field :type_id %>
     <%= form.submit "Save" %>
   </p>
 

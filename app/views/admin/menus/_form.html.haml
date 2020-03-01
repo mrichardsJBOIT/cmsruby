@@ -1,0 +1,13 @@
+=form_with url: url, model: @menu do |form|
+  %p
+    =form.text_field :name
+
+  %h3 Menu Items
+  =form.fields_for :menu_items do |c|
+    %p
+      =c.text_field :title
+      =c.text_field :url
+      =c.hidden_field :id
+
+  %p
+    =form.submit

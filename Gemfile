@@ -67,3 +67,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'pry-rails'
 gem 'pry-byebug'
+
+gem 'ckeditor'
+gem 'carrierwave'
+gem 'mini_magick'
