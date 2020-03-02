@@ -16,10 +16,11 @@
   </p>
   <h3> Custom fields </h3>
     <%= form.fields_for :fields do |c| %>
-    <p>
-    <%= c.label :value, c.object.field_definition.key %>
-    <%= c.text_field :value, class: "form-control" %>
-    <%= c.hidden_field :field_definition %>
+      <p>
+      <%= c.label :value, c.object.field_definition.key %>
+      <%= c.text_field :value, class: "form-control" %>
+      <%= c.hidden_field :field_definition_id %>
+      </p>
     <% end %>
 
   <p>

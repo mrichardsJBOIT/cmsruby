@@ -32,6 +32,7 @@ module Admin
 
       respond_to do |format|
         if @page.save
+          Rails.application.reload_routes!
           format.html { redirect_to admin_page_path(@page), notice: 'Page was successfully created.' }
           format.json { render :show, status: :created, location: @page }
         else
@@ -46,6 +47,7 @@ module Admin
     def update
       respond_to do |format|
         if @page.update(page_params)
+          Rails.application.reload_routes!
           format.html { redirect_to admin_page_path(@page), notice: 'Page was successfully updated.' }
           format.json { render :show, status: :ok, location: @page }
         else
@@ -74,7 +76,7 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def page_params
-      params.require(:page).permit(:title, :body, :slug, :category_id, fields_attributes: [:field_definition_id, :id, :value])
+      params.require(:page).permit(:title, :type_id, :body, :slug, :category_id, fields_attributes: [:field_definition_id, :id, :value])
     end
   end
 end
